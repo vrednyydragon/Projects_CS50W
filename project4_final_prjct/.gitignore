@@ -4,6 +4,8 @@ venv/
 .idea/
 **/allmodels.py
 **/dbwriter.py
+**/hf_translate.py
+**/import_tables.py
 
 
 
