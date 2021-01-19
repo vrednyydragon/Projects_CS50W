@@ -1,0 +1,140 @@
+{% extends "index.html" %}
+{% block body%}
+	<!-- The Modal -->
+	<div class="container" id="modal_window">
+		<div class="modal modal_toppings" id="myModal" style="margin-top: 60px;">
+			<div class="modal-dialog modal-lg">
+			 	<div class="modal-content" >
+			 		<!-- Modal Header -->
+			 		<div class="modal-header">
+						<div class="topping_box">
+							<h4 id=>Toppings</h4>
+							<p id="topping_info1"></p>
+						</div>
+					</div>
+					<!-- Modal body -->
+			 		<div class="modal-body">
+						<div сlass="container" style="columns: 4; margin-top: 0px;column-gap: 0px; width: 100%;">
+							<table id="topping_table" class="table table-striped table-hover table-borderless table-sm" >
+								{% for top in toppings %}
+									<tr>
+										<td>{{ top.dish_name }}</td>
+										<td>
+											<button class="btn btn-sm btn_submit" style="margin: 10px;" value="{{top.id_position}},{{top.dish_name}}" >+</button>
+										</td>
+									</tr >
+								{% endfor%}
+							</table>
+						</div>
+					</div>
+					<!-- Modal footer -->
+					<div class="container">
+						<p id="topping_info2"></p>
+						<ul id = "selected_toppings_list">
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button id="close_btn" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						<a id="confirm_pizza_link" href="#">
+							<button id="confirm_btn" class="btn btn-danger">Confirm</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- if menu category has two prices for a dish -->
+	{% if flag %}
+	<!-- ---------------------pizza---------------------------------- -->
+		{% if menu_position == 'Regular Pizza' or menu_position == 'Sicilian Pizza' %}
+			<div style="margin-top: 30px;margin-bottom:30px; color: blue">
+				<h4>Special offer: for special pizza choose any five toppings</h4>
+			</div>
+			<h3>{{ menu_position }}</h3>
+			<table id="pizza_table" class="table table-striped table-hover table-borderless table-sm" style="width:40%">
+				<tr >
+	                <th>Position</th>
+	                <th>Small</th> 
+		            <th>Large</th>
+	        	</tr>
+				{% for name in menu_table %}
+		            <tr>
+		                <td>{{ name.dish_name }}</td>
+	                		{% if name.topping_count == None %}
+	                			<td>$ {{ name.price_sml }}
+									<a href="{% url 'add_in_basket' menu_position  name.id_position 'price_sml' None %}">
+										<button class="btn btn-sm btn_submit" >+</button>
+									</a>
+								</td>
+				                <td>
+				                	$ {{ name.price_lrg }}
+				                	<a href="{% url 'add_in_basket' menu_position  name.id_position 'price_lrg' None %}">
+										<button class="btn btn-sm btn_submit" >+</button>
+									</a>
+								</td>
+		                	{% else %}
+			                	<td>$ {{ name.price_sml }}
+										<button id="pizza_sml_btn" class="btn btn-sm btn_submit" data-toggle="modal" data-target="#myModal" value="{{menu_position}}, {{name.id_position}}, price_sml, {{name.topping_count}}">+</button>
+								</td>
+			                <td>
+			                	$ {{ name.price_lrg }}
+	 								<button id="pizza_lrg_btn" class="btn btn-sm btn_submit" data-toggle="modal" data-target="#myModal"
+	 								value="{{menu_position}}, {{name.id_position}}, price_lrg, {{name.topping_count}}">+</button>
+							</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			</table>	
+	<!-- ---------------------pizza.end--------------------------------->
+	    {% else %} 
+		    <h3>{{ menu_position }}</h3>
+			<table class="table table-striped table-hover table-borderless table-sm" style="width:40%">
+				<tr >
+	                <th>Position</th>
+	                <th>Small</th> 
+		                <th>Large</th>
+	        	</tr>
+	         	{% for name in menu_table %}
+		            <tr>
+		                <td>{{ name.dish_name }}
+		                {% if name.price_sml == None %}
+		                	<td style="text-align: center;">-</td>
+		                {% else %}
+		                	<td>$ {{ name.price_sml }}
+								<a href="{% url 'add_in_basket' menu_position  name.id_position 'price_sml' None %}">
+									<button class="btn btn-sm btn_submit" >+</button>
+								</a>
+							</td>
+	                	{% endif %}
+		                <td>
+		                	$ {{ name.price_lrg }}
+		                	<a href="{% url 'add_in_basket' menu_position  name.id_position 'price_lrg' None %}">
+ 								<button class="btn btn-sm btn_submit" >+</button>
+ 							</a>
+						</td>
+	            	</tr>
+	            {% endfor %}	
+        	</table>
+    	{% endif %}
+	    <!-- if menu category has one price for a dish -->
+		{% else %}
+			<h3>{{ menu_position }}</h3>
+			<table class="table table-striped table-hover table-borderless table-sm" style="width:40%">
+				<tr >
+	                <th>Position</th>
+	                <th>Price</th>
+	        	</tr>
+				{% for name in menu_table %}
+		            <tr>
+		                <td>{{ name.dish_name }}</td>
+		                <td>$ {{ name.price_sml }}
+		                	<a href="{% url 'add_in_basket' menu_position  name.id_position 'price_sml' None %}">
+								<button class="btn btn-sm btn_submit" >+</button>
+							</a>
+						</td>
+		            </tr>
+				{% endfor%}
+	        </table>
+	{% endif %}
+{% endblock %}
+

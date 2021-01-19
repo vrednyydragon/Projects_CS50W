@@ -1,0 +1,119 @@
+#displayed_messages,  #channels_block, #channel_list { 
+	overflow: auto ; /*Полосы прокрутки добавляются только при необходимости.*/
+}
+.bg_mystyle {
+	background: #778899;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 1px 50px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+/* Style the active class (and buttons on mouse-over) */
+.active, .btn:hover {
+    background-color: #666;
+    color: white;
+}
+input+div {
+    margin-top: 15px;
+}
+.div1 div {
+    display: inline-block;
+   /* padding: 5px;*/
+}
+.scroll1 {
+    overflow: scroll;
+}
+
+#input_window {
+    width: 40%;
+    height: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+.blink_channel {
+    animation: blink_channel 3s linear infinite;
+}
+
+@keyframes blink_channel {
+    0%   {background-color: grey;}
+    50%  {background-color: white;}
+    100% {background-color: grey;}
+}
+
+.im_attach {
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 20px;
+    height: 19px;
+    /*padding: 5px;*/
+    margin-left: 5px;
+    margin-top: 0px;
+}
+.im_attach_input{
+    cursor: pointer;
+    font-size: 120px!important;
+    opacity: .01;
+    position: absolute;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    right: 0;
+}
+.icon-paperclip {
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    vertical-align: top;
+    opacity: 0.8;
+    margin: 0;
+    background-image: url(./send_file.png);
+    background-repeat: no-repeat;
+    background-position: -11px; 
+}
+.button1 {
+    padding: 1px;
+}
+
+.popup {
+    position: absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    display:none;
+    text-align:center;
+}
+
+.popup_bg {
+    background:rgba(0,0,0,0.4);
+    position:absolute;
+    z-index:1;
+    height:100%;
+    width:100%;
+}
+
+.popup_img {
+    position: relative;
+    margin:0 auto;
+    z-index:2;
+    max-height:94%;
+    max-width:94%;
+    margin:1% 0 0 0;
+}
+
+.btn_show_file {
+    width: 50px; 
+    height: 50px; 
+    background: url(./download_pic.png); 
+    background-position: center; 
+    background-size: 45px, 45px; 
+    ​​​​​​​background-repeat: no-repeat
+}

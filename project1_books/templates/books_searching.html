@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Start searching an interesting book!
+{% endblock %}
+
+{% block body %}
+    <a href="#" title="back to top" class="topbutton">^Up</a>
+    <form action="{{ url_for('books_searching') }}" method="post" name="form1">
+        <h3 align="right">{{cur_user_name}}
+        <button name="logout" value="0"> <a href="{{ url_for('logout') }}">logout</a></button>
+        </h3>
+        <div class="container">
+            <p> Choose type of searching book </p>
+            <p><select name="search_list" autofocus>
+                <option disabled>choose type of searching</option>
+                <option value="isbn">isbn</option>
+                <option value="title">title</option>
+                <option value="author" selected >author</option>
+                <option value="year">year</option>
+            </select></p>
+            <label for="serch_text"><b>Write to search</b></label>
+            <input type="text" placeholder="write something" name="serch_text" required value={{ serch_text }} >
+            <button type="submit" name="for_book_page" value= "0" >Search</button>
+        </div>
+        <div>
+            {% if rows_exists %}
+                <table>
+                    <tr>
+                        <th>Book ISBN</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Year</th>
+                        <th nowrap>Link of the book</th>
+                    </tr>
+                    {% for row in rows %}
+                        <tr>
+                            {% for cell in row %}
+                                <td>{{ cell }}</td>
+                            {% endfor %}
+                            <td nowrap>
+                            <button name="for_book_page" value= "{{ row[0] }}" >Click here </button>
+                            <!-- <a href="{{ url_for('book_page', _isbn_ind=row[0]) }}">Click here</a> -->
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+             <!-- this is for messages error-->
+            <!-- {% if error %}
+                <p class=error><strong>Error:</strong> {{ error }}
+            {% endif %} -->
+        </div>
+    </form>
+{% endblock %}
+

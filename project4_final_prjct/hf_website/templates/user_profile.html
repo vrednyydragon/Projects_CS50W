@@ -1,0 +1,602 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div id="mySidepanel" class="sidepanel need-hide1">
+    <a href="javascript:void(0)" class="closebtn m-0">&times;</a>
+    </div>
+    <div class="text-right">
+        <button class="openbtn need-hide1">
+{#            &#9776; Profile#}
+            {% for attr in website_attributes  %}
+                {% if attr.item_uid|stringformat:"s" == "6fd2d83a-64dd-4ce2-80ea-91d9f6b4bc28" %}
+                    &#9776; {{ attr.translation }}
+                {% endif %}
+            {% endfor %}
+        </button>
+    </div>
+    <div class="row m-auto">
+        <div class="col-md my_background_3 p-2 rounded">
+            <ul class="nav nav-tabs" id="product" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab"
+                       aria-controls="description" aria-selected="true" style="color: gray">
+{#                        Results#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "91a7e1dc-22dd-4932-9a87-8b640baeb443" %}
+                               {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="favoritemeal-tab" data-toggle="tab" href="#favoritemeal" role="tab"
+                       aria-controls="favorite" aria-selected="false" style="color: gray">
+{#                        Favorite#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "6e1d8231-f133-440c-8818-20425f199892" %}
+                               {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="characteristics-tab" data-toggle="tab" href="#characteristicse" role="tab"
+                       aria-controls="characteristics" aria-selected="false" style="color: gray">
+{#                        Meal history#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "1d5d8db5-8a10-44d6-a8a5-1f74d6516150" %}
+                               {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content" id="product-content" style="height: 90%; background: white;">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                    {% if user_hf_calc %}
+                        <div class="p-3 w-50">
+                        <h5 class="mt-2 text-center">
+        {#                    Your daily norm:#}
+                            {% for attr in website_attributes  %}
+                                {% if attr.item_uid|stringformat:"s" == "f4d8cc9f-eede-4246-8677-b63503885ffd" %}
+                                    {{ attr.translation }}:
+                                {% endif %}
+                            {% endfor %}
+                        </h5>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td><b>
+{#                                            Сalories:#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "7ae8ba22-20d5-4e7d-86d2-93d4181884b9" %}
+                                                    {{ attr.translation }}:
+                                                {% endif %}
+                                            {% endfor %}
+                                        </b></td>
+                                        <td>{{ user_hf_calc.calories }}
+{#                                            kcal#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "2f58ed6b-7d9a-492a-b444-4fdbab101386" %}
+                                                    ({{ attr.translation }})
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>
+{#                                            Water:#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "b2faeb74-908d-4046-88be-aa877e8e01a4" %}
+                                                    {{ attr.translation }}:
+                                                {% endif %}
+                                            {% endfor %}
+                                        </b></td>
+                                        <td>{{ user_hf_calc.water }}
+{#                                            l#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "cdbc0352-cb6c-49cf-8601-2963fad93ba7" %}
+                                                    ({{ attr.translation }})
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>
+{#                                            Proteins:#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "c4fea17c-18ef-4c3b-9d40-8e912e1b5b00" %}
+                                                    {{ attr.translation }}:
+                                                {% endif %}
+                                            {% endfor %}
+                                        </b></td>
+                                        <td>{{ user_hf_calc.fat }}
+{#                                            g#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "d40892d9-3f38-477f-ae57-dc5539ac2a6f" %}
+                                                    ({{ attr.translation }})
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>
+{#                                            Fats:#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "72ab8d19-a8ba-43ee-8602-4491d27923c9" %}
+                                                    {{ attr.translation }}:
+                                                {% endif %}
+                                            {% endfor %}
+                                        </b></td>
+                                        <td>{{ user_hf_calc.protein }}
+{#                                            g#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "d40892d9-3f38-477f-ae57-dc5539ac2a6f" %}
+                                                    ({{ attr.translation }})
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>
+{#                                            Carbs:#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "81c81eed-6c65-4c31-ab71-fc01d3f05545" %}
+                                                    {{ attr.translation }}:
+                                                {% endif %}
+                                            {% endfor %}
+                                        </b></td>
+                                        <td>{{ user_hf_calc.carb }}
+{#                                            g#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "d40892d9-3f38-477f-ae57-dc5539ac2a6f" %}
+                                                    ({{ attr.translation }})
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>
+{#                                            Sugar:#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "475adfd2-62b8-4229-8762-9dbbf1ada6bb" %}
+                                                    {{ attr.translation }}:
+                                                {% endif %}
+                                            {% endfor %}
+                                        </b></td>
+                                        <td>{{ user_hf_calc.sugar }}
+{#                                            g#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "d40892d9-3f38-477f-ae57-dc5539ac2a6f" %}
+                                                    ({{ attr.translation }})
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="tab-pane fade div_style1" id="favoritemeal" role="tabpanel" aria-labelledby="favoritemeal-tab">
+                    <div id="all_recipes_tile" class="row">
+                        {% for recipe in page_obj %}
+                            <div class="col text-center">
+                                {% load static %}
+                                <img src="{% static recipe.img %}" class="mt-2 sml_recipe_img">
+                                <div class="mx-auto" style="width: 200px;"><a href="{% url 'one_recipe_page' recipe.uid_recipe|stringformat:"s" %}">{{ recipe.name }}</a></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <ul class="pagination" id="pagin_pages_btn">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+{#                                Previous#}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "2654e876-ed28-40a1-ab6f-e34974cd66cb" %}
+                                        {{ attr.translation }}
+                                    {% endif %}
+                                {% endfor %}
+                            </a></li>
+                        {% endif %}
+                        {% for page in  page_obj.paginator.page_range  %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">
+{#                                Next#}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "f46eedd9-e926-4ef7-ba62-2a03df0b373a" %}
+                                        {{ attr.translation }}
+                                    {% endif %}
+                                {% endfor %}
+                            </a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="tab-pane fade p-3" id="characteristicse" role="tabpanel" aria-labelledby="characteristics-tab">
+                {% for date, first_dict in eaten_food2.items %}
+                    <p class="font-weight-bold">{{ date }}</p>
+                    {%  for food_time, meal_list in first_dict.items %}
+{#                        {{ food_time }}#}
+                        <div>
+                            {% if food_time == 'first_breakfast'  %}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "b8b52f18-ef06-4f89-a4db-b9151a40da2d" %}
+                                        <p class="text-center font-italic extremum_click">- {{ attr.translation }} -</p>
+                                    {% endif %}
+                                {% endfor %}
+                            {% elif food_time == 'second_breakfast'  %}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "ae1a063c-ab15-4e7f-abc6-4a8047440654" %}
+                                        <p class="text-center font-italic extremum_click">- {{ attr.translation }} -</p>
+                                    {% endif %}
+                                {% endfor %}
+                            {% elif food_time == 'lunch'  %}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "53de9a6d-010f-4ffa-8636-b64a9f6bc562" %}
+                                        <p class="text-center font-italic extremum_click">- {{ attr.translation }} -</p>
+                                    {% endif %}
+                                {% endfor %}
+                             {% elif food_time == 'afternoon_snack'  %}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "44367a60-6a4a-453c-aecf-ee69b5e8c2b5" %}
+                                        <p class="text-center font-italic extremum_click">- {{ attr.translation }} -</p>
+                                    {% endif %}
+                                {% endfor %}
+                            {% elif food_time == 'dinner'  %}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "5db23539-de43-482d-a7b0-f2f2c620e9cf" %}
+                                        <p class="text-center font-italic extremum_click">- {{ attr.translation }} -</p>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            <ul class="extremum_slide">
+                            {% for meal_dict in meal_list %}
+                                <li>{{ meal_dict.recipe_name }} - {{ meal_dict.recipe_weight }}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "d40892d9-3f38-477f-ae57-dc5539ac2a6f" %}
+                                        {{ attr.translation }}
+                                    {% endif %}
+                                {% endfor %}
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+
+                    {% endfor %}
+                        {% for nutric_date, nutric_lict in all_nutrics_by_day.items %}
+                            {% if nutric_date == date  %}
+                                <figure>
+                                    <figcaption>
+    {#                                    Daily diagramm#}
+                                        {% for attr in website_attributes  %}
+                                            {% if attr.item_uid|stringformat:"s" == "4f7fe7b6-17bc-4eea-8b91-5bc0d8f6f70b" %}
+                                                {{ attr.translation }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </figcaption>
+                                    {% for nutric_name, nutric_value, nutric_measure in nutric_lict %}
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="chart"
+                                        width="450" height="25" aria-labelledby="title" role="img">
+                                            {% if nutric_value > 250  %}
+                                                <g class="bar">
+                                                    <rect width="60%" height="15"></rect>
+                                                    <text x="60%" dx=".7em" y="10" dy=".35em">{{ nutric_name }} - {{ nutric_value }} {{ nutric_measure }}</text>
+                                                </g>
+                                            {% elif nutric_value < 5  %}
+                                                <g class="bar">
+                                                    <rect width="5" height="15"></rect>
+                                                    <text x="5" dx=".7em" y="10" dy=".35em">{{ nutric_name }} - {{ nutric_value }} {{ nutric_measure }}</text>
+                                                </g>
+                                            {% else %}
+                                                <g class="bar">
+                                                    <rect width="{{ nutric_value }}" height="15"></rect>
+                                                    <text x="{{ nutric_value }}" dx=".7em" y="10" dy=".35em">{{ nutric_name }} - {{ nutric_value }} {{ nutric_measure }}</text>
+                                                </g>
+                                            {% endif %}
+                                        </svg>
+                                    {% endfor %}
+                                </figure>
+                            {% endif %}
+                        {% endfor %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-4 need-hide" id="us_profile_col">
+            <div id="profile_main_panel" class="card my_background_1 py-2" style="width:120%;">
+                <div id="user_profile1">
+                    <div id="user_img_name_normal">
+                        <img id="curr_user_picture" class="mx-auto d-block rounded-circle img-fluid  profile_img" src="{{ user_img_url }}"> {#src="static/1.jpg">#}
+                        <div class="d-flex justify-content-center mt-2">
+                            <h4 id="curr_user_name"class="card-title ">{{ user_name }}</h4>
+                            <button id="user_img_name_change_btn" class="button btn-sm btn-link mx-2 icon-pencil"></button>
+                        </div>
+                    </div>
+                    <div id="user_img_name_changeform" style="display: none">
+                        <form id="user_img_name_changeform" method="POST" enctype="multipart/form-data" class="my-2 mx-4" action="{% url 'user_profile' %}">
+                            {% csrf_token %}
+                            <input type="file" accept="image/*" name="download_img">
+                            <input name="change_user_name" type="text" value="{{ user_name }}" required>
+                            <button id="user_img_name_submit" class="btn btn-sml">
+{#                                Submit#}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "e50c6071-4b52-41fe-886b-bbb543227080" %}
+                                        {{ attr.translation }}
+                                    {% endif %}
+                                {% endfor %}
+                            </button>
+                        </form>
+                        <button id="cansel_img_name_btn" class="btn btn-sml cansel_btn" style="float: right; margin-top: -46px; margin-right: 40px; ">
+{#                            Cansel#}
+                            {% for attr in website_attributes  %}
+                                {% if attr.item_uid|stringformat:"s" == "59f1d0eb-90f6-4b8c-9135-b2022c88a4e4" %}
+                                    {{ attr.translation }}
+                                {% endif %}
+                            {% endfor %}
+                        </button>
+
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'user_profile' %}" method="POST">
+                            {% csrf_token %}
+                            <div style="overflow-x:auto;">
+                                <table class="table table-sm ">
+                                    <tbody>
+                                        <tr>
+                                            <td><b>
+{#                                                Date of birth:#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "78ad4162-1d81-4be5-819e-28179d9148eb" %}
+                                                        {{ attr.translation }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </b></td>
+                                            <td><input name="date_of_birth" type="date" value="{{ date_of_birth }}" required></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>
+{#                                                Gender:#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "77b13da7-c31f-4d9f-8a54-ba6996f69974" %}
+                                                        {{ attr.translation }}:
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </b></td>
+                                            <td>
+                                                <select name="gender" autofocus id="{{ gender }}" class="gender_select">
+                                                    <option value="male" >
+{#                                                        Male#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "ba11941c-acf0-467c-89aa-c82e45dff997" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option value="female">
+{#                                                        Female#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "41cc74c0-7b71-40ce-a838-ea60dde9fe0c" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr id = "user_age_string" hidden>
+                                            <td><b>
+{#                                                Age:#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "7f153402-8338-41a5-9aad-a6484dd8282b" %}
+                                                        {{ attr.translation }}:
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </b></td>
+                                            <td>{{ user_age }}
+{#                                                years#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "835922da-5df0-4a77-a2cf-157aae604436" %}
+                                                        {{ attr.translation }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>
+{#                                                Height:#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "3aeb9fdf-36a2-41c7-8522-2416165514b4" %}
+                                                        {{ attr.translation }}:
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </b></td>
+                                            <td><input type="number" placeholder="Enter your height" name="user_height" value="{{ user_height }}" required></td>
+                                            <td>
+{#                                                cm#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "ae97687e-ec73-4f0a-b90c-279372f0cd40" %}
+                                                        {{ attr.translation }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>
+{#                                                Weight:#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "d32812e5-8fe3-44e9-9fc3-9ea44db207f2" %}
+                                                        {{ attr.translation }}:
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </b></td>
+                                            <td><input type="number" placeholder="Enter your weight" name="user_weight" value="{{ user_weight }}" required></td>
+                                            <td>
+{#                                                kg#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "6b8ab3e7-2bf2-4425-8f44-1f4c886a360d" %}
+                                                        {{ attr.translation }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>
+{#                                                Type of food:#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "8d95f75f-0821-4fc7-b173-cc513e44773c" %}
+                                                        {{ attr.translation }}:
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </b></td>
+                                            <td>
+                                                <select name="type_of_food" autofocus id="{{ type_of_food }}">
+                                                    <option value="weight_loss">
+            {#                                            weight loss#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "17de4947-59f1-4387-b7e0-c2b8f14c8f39" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option value="weight_maintenance">
+            {#                                            weight maintenance#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "bcd82627-96d8-41c6-9f71-3b7e550c729e" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option value="muscle_gain">
+            {#                                            muscle gain#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "01dab60b-ecd2-4e04-b277-4965df9e4dfe" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>
+{#                                                Activity level:#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "2b3e17c2-3a39-4e90-80a7-1c8642c455a4" %}
+                                                        {{ attr.translation }}:
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </b></td>
+                                            <td>
+                                                <select name="activity_level" autofocus id="{{ activity_level }}">
+                                                    <option id="minimal_activity" value="1.2" title="lack of physical activity,
+                                                    sedentary work, minimum movement">
+{#                                                        minimal activity#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "93e35437-27c6-431d-af89-51ab35c2e7f1" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option id="small_activity" value="1.375" title="light workouts or walks,
+                                                    small daily activity during the day">
+{#                                                        small activity#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "76a9fdd3-bf14-4604-997f-26a7b9c3d0d0" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option id="average_activity" value="1.46" title="training 4-5 times a week,
+                                                    good activity during the day">
+{#                                                        average activity#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "5f026a61-0a00-4cb8-958e-5a875a8896a6" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option id="above_average" value="1.55" title="intensive training 5-6 times a week,
+                                                    good activity during the day">
+{#                                                        activity is above average#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "e5a5d7fa-5254-4051-91f9-25ad2d417257" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option id="increased_activity" value="1.64" title="daily training, high daily activity">
+{#                                                        increased activity#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "d1a90747-12a4-451c-bcb3-badaf2ffa958" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option id="high_activity" value="1.72" title="daily ultra-intense training and high daily activity">
+{#                                                        high activity#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "ee7e276d-5510-46fd-a437-a05a22737512" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                    <option id="very_high_activity" value="1.9" title="usually we are talking about athletes
+                                                    during the period of competitive activity">
+{#                                                        very high activity#}
+                                                        {% for attr in website_attributes  %}
+                                                            {% if attr.item_uid|stringformat:"s" == "420a72fc-5740-43ab-9627-644fa470544f" %}
+                                                                {{ attr.translation }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+                                                </select>
+                                            </td>
+
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button id="us_profile_submit" class="btn">
+{#                                Submit#}
+                                {% for attr in website_attributes  %}
+                                    {% if attr.item_uid|stringformat:"s" == "e50c6071-4b52-41fe-886b-bbb543227080" %}
+                                        {{ attr.translation }}
+                                    {% endif %}
+                                {% endfor %}
+                            </button>
+                        </form>
+                        <button id="cansel_btn" class="btn form-inline cansel_btn" style="float: right; margin-top: -35px;">
+{#                            Cansel#}
+                            {% for attr in website_attributes  %}
+                                {% if attr.item_uid|stringformat:"s" == "59f1d0eb-90f6-4b8c-9135-b2022c88a4e4" %}
+                                    {{ attr.translation }}
+                                {% endif %}
+                            {% endfor %}
+                        </button>
+                        <button id="us_profile_change_btn" class="btn" hidden>
+{#                            Change#}
+                            {% for attr in website_attributes  %}
+                                {% if attr.item_uid|stringformat:"s" == "d05d4190-dcad-48ba-8295-dea3d77228aa" %}
+                                    {{ attr.translation }}
+                                {% endif %}
+                            {% endfor %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".extremum_click").click(function () {
+            $(this).siblings(".extremum_slide").slideToggle("slow");
+        });
+    </script>
+{% endblock %}

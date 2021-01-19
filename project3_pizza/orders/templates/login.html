@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block body %}
+{% if message %}
+    <div class="container text-center">
+        <h5>{{ message }}</h5>
+    </div>
+{% endif %}
+	<div id="login-form">
+      <h1>Login</h1>
+        <fieldset class='text-white'>
+            <form action="{% url 'login' %}" method="post">
+            	{% csrf_token %}
+            	<label for="user_name"><b>User name</b></label>
+		    	<input type="text" placeholder="Enter user name" name="username" required >
+			    <label for="password"><b>Password</b></label>
+		    	<input type="password" placeholder="Enter Password" name="password" required>
+			    <input type="submit" value="Login">
+            </form>
+        </fieldset>
+    </div> 
+    <div class="container text-center">
+	    <h6> New? Create an Account <a href="{% url 'register' %}">Sign In</a></h6>
+	</div>
+{% endblock %}
+

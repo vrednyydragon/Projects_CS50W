@@ -1,0 +1,85 @@
+.topbutton {
+    width: 60px;
+    border: 1px solid gray;
+    background: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    cursor: pointer;
+    color: green;
+    font-family: verdana;
+    font-size:14px;
+    border-radius: 5px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.alert {
+    margin: 20px;
+}
+.foo {
+    color: white;
+    background-color: grey;
+} 
+#text1 {
+    font-size: 20px;
+}
+@media (min-width: 600px) {
+    body {
+        background-color: #FFF5EE;
+    }
+}
+@media (max-width: 700px) {
+    body {
+        background-color: #F0FFFF;
+    }
+}
+h1 {
+    border: 5px dotted #BC8F8F;
+    color: #BC8F8F;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: #cad5e2 1px 1px 0, #cad5e2 2px 2px 0, 
+                 #cad5e2 3px 3px 0, #cad5e2 4px 4px 0, 
+                 #cad5e2 5px 5px 0;
+}    
+h2 {
+    color: #800080;
+    text-align: left;
+}
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 50%;
+}
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+th {
+    background-color: #BC8F8F;
+} 
+td {
+    background-color: white;
+} 
+a:active {
+    color: green;
+}
+a:visited {
+    color: darkblue;
+}
+p::selection {
+    color: red;
+    background-color: #F0E68C;
+}
+li::selection {
+    color: blue;
+    background-color: #F0E68C;
+}
+@media print {
+    .screen-only {
+        display: none;
+}

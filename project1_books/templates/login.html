@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Hello!
+{% endblock %}
+
+{% block body %}
+	<!-- this is for messages error-->
+	<!-- {% if error %}
+		<p class=error><strong>Error:</strong> {{ error }}
+	{% endif %} -->
+    <!-- Hello, {{ name }}! {{message}} -->
+    <!-- Fill this form for entering into your page -->
+    <form action="{{ url_for('login') }}" method="post">
+		<div class="container">
+			<label for="email"><b>Email</b></label>
+	    	<input type="text" placeholder="Enter Email" name="email" required>
+	    	<label for="password"><b>Password</b></label>
+	    	<input type="password" placeholder="Enter Password" name="password" required>
+	    	<button type="submit" class="registerbtn">Login</button>
+	    </div>
+{% endblock %}

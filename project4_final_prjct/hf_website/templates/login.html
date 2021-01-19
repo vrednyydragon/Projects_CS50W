@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block heading %}
+{#    Login     #}
+{% endblock %}
+
+{% block body %}
+
+    <div id="login-form">
+        <h1>
+{#            Login#}
+            {% for attr in website_attributes  %}
+                {% if attr.item_uid|stringformat:"s" == "4ca23f61-0b01-4f47-b206-54bf7cc09af5" %}
+                    {{ attr.translation }}
+                {% endif %}
+            {% endfor %}
+        </h1>
+        <fieldset class='text-white'>
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <label for="user_email"><b>
+{#                    Email#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "2908463b-5fb4-459f-ada8-5623fd46a19e" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </b></label>
+                <input type="text" placeholder="Enter Email" name="email" required >
+                <label for="password"><b>
+{#                    Password#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "e3247be4-aece-4562-a24d-d0a07475d1f6" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <input type="submit" value="Login">
+            </form>
+        </fieldset>
+    </div>
+    <div class="container text-center">
+        <h6>
+{#            New? Create an Account #}
+            {% for attr in website_attributes  %}
+                {% if attr.item_uid|stringformat:"s" == "f441832c-415c-4166-bee2-e4b61df6595f" %}
+                    {{ attr.translation }}
+                {% endif %}
+            {% endfor %}
+            <a href="{%  url 'register' %}">
+{#                Sign In#}
+                {% for attr in website_attributes  %}
+                    {% if attr.item_uid|stringformat:"s" == "2f481145-88a0-4ffb-be2b-1ac79e570b96" %}
+                        {{ attr.translation }}
+                    {% endif %}
+                {% endfor %}
+            </a></h6>
+    </div>
+{% endblock %}

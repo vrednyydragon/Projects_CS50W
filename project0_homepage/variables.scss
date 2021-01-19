@@ -1,0 +1,15 @@
+$color1: #8B0000;
+$color2: black;
+$size: 16px;
+
+ol li {
+    color: $color1;
+    font-size: $size;
+}
+ul > li {
+    color: $color1;
+    font-size: $size;
+}
+p {
+	color: $color2;
+}

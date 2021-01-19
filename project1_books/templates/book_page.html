@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+   This is the book page!
+{% endblock %}
+
+{% block body %}
+    <a href="#" title="back to top" class="topbutton">^Up</a>
+     <!-- this is for messages error-->
+    <!-- {% if error %}
+        <p class=error><strong>Error:</strong> {{ error }}
+    {% endif %} -->
+    
+    <form action="{{ url_for('book_page')}}" method="post">
+        <h3 align="right">{{cur_user_name}}
+        <button name="logout" value="0"> <a href="{{ url_for('logout') }}">logout</a></button>
+        </h3>
+        <div class="container">
+            <!-- hello, {{some_data}} ! -->
+            <h1> "{{ title_of_b }}"</h1>
+            <h2> by {{ author_of_b }} ({{ year_of_b }})</h2>
+            <h4>isbn number ({{ isbn_of_b }})</h4>
+            <hr>
+            <h3>Ratings from  <a href= "https://www.goodreads.com"> &#8658 <img src="{{url_for('static',filename = 'goodreads.png')}}" alt="goodreads" width=10% ></a>
+            </h3>
+            <h3> Ratings count: {{ratings_count_gr}}<br> Average rating: {{average_rating_gr}}</h3>  
+            <hr>
+
+            <h4>Rate this book
+                <select name="rate_list" autofocus>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4"selected>4</option>
+                <option value="5">5</option>
+                </select>
+            </h4>
+            <h4>  
+                <label for="user_review" >Review</label> <br>
+                <textarea required placeholder="Your thoughts about this book" name="user_review" cols="100" rows="5" wrap id="comment"></textarea>
+                <input type="reset" value="clear">
+                <button name="btnok" type="submit" value="1">Send</button>
+            </h4>
+            <hr>
+            {% for list in public_reviews %}
+                <h4> {{ list[0] }} (rate {{ list[1] }})</h4>
+                <p> {{ list[2]}}</p>
+                <hr>
+            {% endfor %}
+        </div>
+        <p>Back to the searching page  <a href="{{url_for('books_searching')}}"> Click here</a>.</p>
+    </form>
+{% endblock %}
+

@@ -1,0 +1,8 @@
+**/crib.txt
+__pycache__/
+venv/
+.idea/
+
+
+
+

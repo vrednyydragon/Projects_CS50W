@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block body %}
+    {% if message_type == "not exists" %}
+        <h3>Looking for "{{ page_title }}"?</h3>
+        <h5 class="mt-5">"{{ page_title }}" {{ page_info|safe  }}</h5>
+        <p>Wanna create? <a href="{% url 'new_page' %}">Click here</a>.</p>
+    {% elif message_type == "exists" %}
+        <h3>Error with creating of "{{ page_title }}"?</h3>
+        <h5 class="mt-5">"{{ page_title }}" {{ page_info|safe  }}</h5>
+        <p>Wanna redact the page? <a href="{% url 'edit_page' page_title %}">Click here</a>.</p>
+    {% endif %}
+{% endblock %}

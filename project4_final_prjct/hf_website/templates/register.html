@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block heading %}
+{#    Register   #}
+{% endblock %}
+
+{% block body %}
+    <div id="login-form">
+        <h1>
+{#            Create an Account#}
+            {% for attr in website_attributes  %}
+                {% if attr.item_uid|stringformat:"s" == "81eefdc4-f0e1-46c6-8f54-7225f45e05a2" %}
+                    {{ attr.translation }}
+                {% endif %}
+            {% endfor %}
+        </h1>
+        <fieldset class='text-white'>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <label for="user_name"><b>
+{#                    User name#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "682e5105-2c59-4828-8ae4-0abb6ef0d360" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </b></label>
+                <input type="text" placeholder="Enter user name" name="user_name" required>
+                <br>
+                <label for="email"><b>
+{#                    Email#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "2908463b-5fb4-459f-ada8-5623fd46a19e" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <br>
+                <label for="password"><b>
+{#                    Password#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "e3247be4-aece-4562-a24d-d0a07475d1f6" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <br>
+                <label for="password_2"><b>
+{#                    Repeat Password#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "4057be41-956e-4c46-aa1e-8ea36d1f18eb" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </b></label>
+                <input type="password" placeholder="Repeat Password" name="password_2" required>
+                <br>
+                <input type="submit" value="Sign In">
+            </form>
+        </fieldset>
+    </div>
+    <div class="container text-center">
+        <h6>
+{#            Already have an account?#}
+            {% for attr in website_attributes  %}
+                {% if attr.item_uid|stringformat:"s" == "a8014404-019d-43ff-af79-8ab7927a9a6d" %}
+                    {{ attr.translation }}
+                {% endif %}
+            {% endfor %}
+            <a href="{% url 'login' %}">
+{#                Sign in#}
+                {% for attr in website_attributes  %}
+                    {% if attr.item_uid|stringformat:"s" == "2f481145-88a0-4ffb-be2b-1ac79e570b96" %}
+                        {{ attr.translation }}
+                    {% endif %}
+                {% endfor %}
+            </a>
+        </h6>
+    </div>
+
+{% endblock %}

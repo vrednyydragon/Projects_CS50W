@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="p-2 h-100 rounded my_background_1 p-5">
+        <div class="shadow-lg rounded my_background_4 p-3">
+            <h5 align="center">{{ product.name }}</h5>
+            <div class="d-inline-flex">
+                {% for tag in product.tags %}
+                    <a id="{{ tag.tag_uid }}" class="mx-2 show_tag_name" href="#" style="color: grey">
+                            {{ tag.tag_uid__tagstranslations__translation }}</a>/
+                {% endfor %}
+            </div>
+            <div class="container_product_img">
+                {% load static %}
+                <img src="{% static product.img %}" class="product_img" >
+            </div>
+            <div class="form-inline align-content-center mt-3" id="weight_block">
+                <input id="recipeweight" class="form-control" style="width: 100px" type="number"
+                       name="txtSearch" value="100">
+                <span class="ml-2">g</span>
+            </div>
+            <table class="table table-bordered text-center table-responsive-lg " id="nutric_table">
+                <thead>
+                    <tr>
+                        {% for nutric_name, value, measure in nutricients %}
+                            <th>{{ nutric_name }}, {{ measure }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for nutric_name, value, measure in nutricients %}
+                            <td id="{{ value }}">{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage3</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="variables.css">
+        <link rel="stylesheet" href="nesting.css">
+            <style> 
+                @media (min-width: 600px) {
+                    h1::before {
+                        content: "Countries I visited!";
+                        }
+                }
+                @media (max-width: 700px) {
+                    h1::before {
+                        content: "Countries";
+                    }
+                }
+                h2+ol { 
+                    margin-top: 35px;
+                }
+            </style>
+    </head>
+    <body>
+        <a href="#" title="back to top" class="topbutton">^Up</a>
+        <div>
+        	<h1></h1>
+            <h2>About my interests, hobbies, education: </h2>
+            <ol >
+                <li><a href="index.html">My main page.</a></li>
+                <li><a href="page2.html">My education.</a></li>
+                <li><a href="page3.html">About my interests, hobbies.</a></li>
+            </ol>
+            <p>I want show you a list of countries and cities I visited.
+                <ul>
+                    <li>Turkey
+                        <ul>
+                            <li>Turgutreis</li>
+                            <li>Bodrum</li>
+                            <li>Kemer</li>
+                        </ul>
+                    </li>
+                    <li>Cyprus
+                        <ul>
+                            <li>Ayia-Napa</li>
+                        </ul>
+                    </li>
+                    <li>Egypt
+                        <ul>
+                            <li>Hurghada</li>
+                        </ul>
+                    </li>
+                    <li>Albania
+                        <ul>
+                            <li>Ksamil</li>
+                        </ul>
+                    </li>    
+                    <li>Spain
+                        <ul>
+                            <li>Altea</li>
+                            <li>Albir</li>
+                            <li>Benidorm</li>
+                            <li>Kalpe</li>
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <p> Also read the list of cities of Ukraine that I visited 
+            <ul>
+                <li>Mykolaiv</li>
+                <li>Kyiv</li>
+                <li>Uzgorod</li>
+                <li>Lviv</li>
+                <li>Mukacheve</li>
+                <li>Odessa</li>
+                <li>Ivano-Frankivsk</li>
+            </ul>
+        </p>
+        <div class="container">
+            <div class="alert alert-danger" role="alert">
+                <h3 class="alert-heading">Well done!</h3>
+                <p id = "text1">You have finished reading my last page of the my website.</p>
+                <p>Click <a href="index.html" class="alert-link"> here </a> to go to the main page.</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New Page
+{% endblock %}
+
+{% block body%}
+    <div class="container">
+        <h4>New encyclopedia entry</h4>
+        <form action="{% url 'new_page' %}" method="post" id="new_page_form">
+            {% csrf_token %}
+            {{ new_page_form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+        <button class="button" onClick='location.href="{% url 'index'  %}"'
+                style="position: absolute; margin: 0 100px; margin-top: -29px">Cansel</button>
+    </div>
+{% endblock %}

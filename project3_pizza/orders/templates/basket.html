@@ -1,0 +1,104 @@
+{% extends "index.html" %}
+{% block body%}
+	<!-- The Modal window -->
+	<div class="modal modal_toppings" id="myModal2" style="margin-top: 70px">
+		<div class="modal-dialog">
+		 	<div class="modal-content">
+		 		<!-- Modal Header -->
+		 		<div class="modal-header">
+						<h4>Orders history</h4>
+				</div>
+				<!-- Modal body -->
+		 		<div class="modal-body">
+		 			{% if user_old_orders %}
+						{% for dict in user_old_orders %}
+							<p><b>Order #{{dict.order_number}}. Status: 
+								{% if dict.order_status == "new" %}
+									<span style="color: red">{{dict.order_status}}</span>
+								{% elif dict.order_status == "in procces" %}
+									<span style="color: blue">{{dict.order_status}}</span>
+								{% elif dict.order_status == "closed" %}
+									<span style="color: green">{{dict.order_status}}</span>
+								{% endif %}
+							</b></p>
+							{% for category, name, price in dict.value %}
+								{% if category == "Toppings" %}
+									<p style="margin-left: 80px;"> - {{name}} </p>
+								{% else %}
+									<ul>
+										<li>{{category}}/{{name}} - $ {{price}} </li>
+									</ul>
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+					{% else %}
+						<h5>You don't have orders history</h5>
+					{% endif %}
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button id="close_btn" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="text-right" style="margin-right: -10%">
+		<button id = "orders_history" type="button" class="btn" data-toggle="modal" data-target="#myModal2">Orders history</button> 
+	</div>
+	<div class="container">
+		{% if total_cost == 0 %}
+        		<h4>Your basket is empty! Let's go to the <a href="{% url 'index'  %}">menu</a>.</h4>
+        {% else %}
+			<h3>Order</h3>
+			<table class="table table-striped table-hover table-borderless table-sm" style="width:60%">
+				<tr >
+	                <th>Position</th>
+	                <th width="100" style="text-align: center;">Count</th> 
+	                <th nowrap>Price for one</th>
+	                <th nowrap>Total price</th>
+            	</tr>
+            	{% for dict in order_list %}
+	            	{% if dict.dish_category == "Toppings" %}
+	            		<tr style="text-align: center;">
+		             		<td>{{ dict.dish_name }}</td>
+			                <td>-</td> 
+			                <td>-</td>
+			                <td>-</td>
+		        		</tr >
+	            	{% else %}
+		            	<tr>
+		             		<td><span style="font-weight: bold">{{ dict.dish_category }}</span> / {{ dict.dish_name }}</td>
+			                <td align="center">
+			                	<a href="{% url 'count' dict.dish_id 'minus' %}">
+				                	<button type="button" class="btn-sm">-</button> 
+				                </a>
+				                {{ dict.count }}
+				                <a href="{% url 'count' dict.dish_id 'plus' %}">
+		                			<button type="button" class="btn-sm">+</button>
+		                		</a>
+			                </td> 
+			                <td style="text-align: center;">$ {{ dict.dish_price }}</td>
+			                <td style="text-align: center;">${{ dict.total_price }}</td>
+		        		</tr >
+
+		            {% endif %}
+            	{% endfor %}
+            	<tr>
+	                <th>Order cost:</th>
+	                <th></th> 
+	                <th></th>
+	                <th>$ {{ total_cost }}</th>
+            	</tr>
+	        </table>
+	        <div >
+	    		<a href="{% url 'clear_basket' %}">
+	        		<button id = "clear_order" type="submit" class="btn" >Clear All</button> 
+	    		</a>
+	    		<a href="{% url 'order_confirmed' %}">
+					<button id = "confirm_order" type="button" class="btn">Confirm Order</button>
+				</a>
+	        </div>
+		{% endif %}	
+	</div>
+{% endblock %}

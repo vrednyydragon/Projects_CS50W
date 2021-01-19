@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="variables.css">
+            <style> 
+                @media (min-width: 600px) {
+                    h1::before {
+                        content: "Little story about me :)!";
+                        }
+                }
+                @media (max-width: 700px) {
+                    h1::before {
+                        content: "Little story";
+                    }
+                } 
+                h2+ol, h2+table, table+h2, img+h2 { 
+                    margin-top: 24px;
+                }
+            </style>
+    </head>
+    <body>
+        <a href="#" title="back to top" class="topbutton">^Up</a>
+        <div class="container">
+            <h1></h1>
+            <h2>So let's go</h2>
+            <p  id = "text1"> Hi everyone! My name is Alex.</p>
+            <ul>
+                <li><a href="#section1">Important dates and event.</a></li>
+                <li><a href="#section2">Place where I live.</a></li>
+                <li>About my interests, hobbies, education.</a>
+                    <ul >
+                    <li class="screen-only"><a href="page2.html">My education.</a></li>
+                    <li class="screen-only"><a href="page3.html">Interests and hobbies.</a></li>
+                    <li class="screen-only"><a href="page4.html">Countries I visited.</a></li>
+                     </ul>
+                </li>
+            </ul>
+            <h2 id="section1">Important dates and event</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Event</th>
+                </tr>
+                <tr>
+                    <td>17.12.1987</td>
+                    <td>The day of my birthday</td>
+                </tr>
+            </table>
+            <h2 id ="section2">Place where I live</h2>
+            <p class="foo"> I live in Kyiv now. Kyiv is one of the most beautiful cities of the world that picturesquely spreads on the Dnipro river hills. Also Kyiv is the capital of Ukraine with population of about 3 million citizens. It is situated on the Dnipro River and boasts architectural monuments that are recognized world treasures. Kiev is the largest cultural, scientific and industrial center of Ukraine, the place of religious pilgrimage and a very attractive tourist destination. Its beautiful landscapes, parks and gardens charm and captivate.</p>
+            <img src="Kyiv.jpg" alt="Kyiv" width=50% >
+            <h2 >Some interesting facts about Kiev and Ukraine</h2>
+            <ol>
+                <li>The center of Europe is in Ukraine. The geographical center of Europe is in the western Ukraine in the small town of Rahov which is in a picturesque place among the Carpathians mountains.</li>
+                <li> Khreshchatyk street – the shortest main street of the world! Do little more than 2800 steps to admire its beauty! In the context of architecture we can talk about gathering of different epochs! Among the rest of 2300 streets it is also the widest street of Kyiv which is named American long mile by locals.</li>
+                <li>The third of the most visited Mcdonald’s is situated in Kiev, near the railway station. This restaurant is always included in the list of the world’s most popular Mcdonald’s. People made there 2 millions 283 thousand 399 orders last year.</li>
+                <li>The subway station ‘Arsenalnaya’ in Kiev has the biggest depth all over the world. It’s depth lasts 105 meters. It was one of the first stations, which were built in 1960 next to the parlament building. Pursuant to some information, there are some secret refuges for the political top in the tunnels near the station ‘Arsenalnaya’. On the second place is the station ‘Park Pobedy’; it’s depth lasts 84 meters (now it’s depth is biggest in Russia).</li>
+                <li>Scientists have found the most ancient map and settlement of the Homo Sapiens at the territory of modern Kiev. Wonderful finds were made in Mezhyrechje, Rivnenska oblast. They are about 14-15 years old. This map is beaten on the mammoth’s bones, and the material, which settlement is built of, is the same.
+                </li>
+                <li>You can see the famous shod flea in the Museum of Miniatures, Kiev. The work was made by a well-known Ukrainian craftsman of miniatures Nikolay Syadristy.</li>
+                <li>The Ukrainian language took the second place in the world on melodic criteria after Italian. Also, it was ranked as the third most beautiful language in the world on the following criteria: phonetics, lexicon, phraseology and sentences structure after French and Persian languages at the linguistic contest which was held in Paris in 1934.</li>
+                <li>56 thousand hectares is an area of green space within the city (but some 50 years ago, Kiev was the greenest city in the world)</li>
+                <li>Most of all words in the Ukrainian language starts with the letter «п». «О» is the most frequently used letter of the Ukrainian alphabet. The letters «ф» and «ґ» are least often used.</li>
+                <li>The Ukrainian national anthem consists of only six lines — four in a verse and two in a chorus. The other verses of the anthem written by poet Pavel Chubinsky and composer Mikhail Verbitsky were not approved as considered politically incorrect. (“We’ll stand, brothers, in bloody battle, from the Syan to the Don” implies a claim to the territories of Russia and Poland).</li>
+                <li>Ukraine is rich in manganese ore, 2.3 billion tons or about 11% of all deposits of the world. There is a lot of iron ore too — 7% of the world reserves.</li>
+                <li>A plane with the largest freight-carrying capacity in the world – the An-225 “Mriya” was invented by Ukrainians, namely the Antonov Design Bureau. Originally, it was designed for spacecraft transportation. Now “Mriya” specializes in commercial freight.</li>
+                <li>One of the world’s most famous Christmas songs is “Schedrik”, a folk song written by a Ukrainian composer Mykola Leontovych. The world knows it as “Carol of the Bells” or “Ring Christmas Bells”. Different versions of «Shchedryk» are gaining millions of views on Youtube.</li>
+                <li>Ukrainian "Yuzhmash" (Dnepropetrovsk) produces the most environmentally friendly launch vehicles in the world. With the help of them commercial freights are sent in space within the international project "Sea Start".</li>
+                <li>The official Guinness world record: Ukrainians recently made the world’s largest glass of champagne – 56.25 liters.</li>
+            </ol>
+            <div class="alert alert-primary" role="alert">
+                <h3 class="alert-heading">Well done!</h3>
+                <p>You have finished reading my first page of the my website.</p>
+                <p>Click <a href="page2.html" class="alert-link"> here </a> to go to the next page.</p>
+            </div>
+        </div>
+    </body>
+</html>

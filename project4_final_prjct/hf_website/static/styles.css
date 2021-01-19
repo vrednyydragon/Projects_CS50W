@@ -1,0 +1,369 @@
+body {
+  overflow: auto;
+  background: url(./food9.jpg) no-repeat center center fixed; /*gray;*/
+  background-size: cover;
+}
+
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+
+.all_in_line{
+    display: inline-block;
+}
+
+@media (max-width:800px) {
+   .need-hide{
+       display:none;
+   }
+    .recipe_img{
+        width: 150px;
+    }
+}
+@media (min-width:800px) {
+   .need-hide1{
+       display:none;
+   }
+}
+
+#slogan{
+  background: rgb(103, 111, 118, 0.85);
+  color: white;
+  padding: 4px;
+}
+
+#go_btn{
+  position: relative;
+}
+
+.profile_img {
+  width:50%;
+  box-shadow: 0 0 7px #666;
+ }
+
+
+img.recipe_img {
+    max-width:300px;
+    margin: auto;
+}
+
+.sml_recipe_img{
+    width: 200px;
+    height: 170px;
+}
+
+.product_img {
+  max-width: none;
+  min-width: auto;
+  min-height: auto;
+  position: absolute;
+}
+.container_product_img{
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.my_background_1{ /*gray #676f76 */
+  background: rgb(103, 111, 118, 0.85);
+}
+
+.my_background_2{ /*yellow #f3c968 */
+  background: rgb(243, 201, 104, 0.85);
+}
+.my_background_3 { /*default gray dark from bootstrap4 $gray-800:*/
+  background: #343a40;
+}
+.my_background_4 { /*white */
+  background: rgba(255,255,255,0.9);
+}
+
+/*login/register form */
+#login-form {
+  background-color: rgb(103, 111, 118, 0.85);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: auto;
+  width: 300px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  -webkit-box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+   box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+
+}
+#login-form h1 {
+  background-color:  #343a40;
+  border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+#login-form fieldset {
+  border: none;
+  padding: 20px;
+  position: relative;
+}
+#login-form fieldset form {
+  overflow: hidden;
+  width: 270px;
+}
+#login-form fieldset form input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  outline: none;
+  -webkit-appearance:none;
+  width: 270px;
+  align: center;
+  position: center;
+}
+#login-form fieldset form input[type="text"] {
+  border-radius: 3px 3px 0px 0px;
+  -moz-border-radius: 3px 3px 0px 0px;
+  -webkit-border-radius: 3px 3px 0px 0px;
+  padding: 12px 10px;
+  width: 260px;
+  margin-bottom: 10px;
+  -webkit-appearance:none;
+}
+#login-form fieldset form input[type="password"] {
+  border-top: none;
+  border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  -webkit-border-radius: 0px 0px 3px 3px;
+  padding: 12px 10px;
+  width: 260px;
+  margin-bottom: 10px;
+  -webkit-appearance:none;
+}
+#login-form fieldset form input[type="submit"] {
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 3px;
+  width: 260px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #404040;
+  cursor: pointer;
+  float: none;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 12px 12px;
+  -webkit-appearance: none;
+}
+#login-form fieldset form input[type="submit"]:hover {
+  background-color: #e0e0e0;
+  width: 260px;
+}
+#login-form fieldset form span:before {
+  background-color: #c9c9c9;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  content: "?";
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 10px;
+  text-align: center;
+  width: 20px;
+}
+#login-form fieldset form span {
+  font-size: 12px;
+  margin-top: 40px;
+}
+#login-form fieldset form span a{
+  color: #eb6d1a;
+  text-decoration: none;
+}
+#login-form fieldset form span a:hover {
+  color: #eb6d1a;
+}
+
+.ing_list_recipes_pg_cl{
+
+}
+
+.icon-pencil{
+  background-image: url(./pen.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 29px;
+  height: 29px;
+}
+
+.hide_elem {
+  display: none;
+}
+
+/*close X */
+.close {
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #000;
+}
+
+/* slide panel for profile*/
+/* The sidepanel menu */
+.sidepanel {
+  height: 92%; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 50px;
+  left: 0;
+  background-color: #676f76;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 40px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: orange;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #343a40;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  cursor: pointer;
+  background-color: #343a40;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.openbtn:hover {
+  background-color: rgb(103, 111, 118, 0.85);
+}
+
+#scrollTop.active {
+    right: 0;
+    background-color: #000;
+}
+
+#scrollTop.desktop {
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+    -o-transform: translate(0);
+}
+
+@media only screen and (max-height: 760px){
+  #scrollTop {
+    bottom: 25%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #scrollTop {
+    bottom: 10%;
+  }
+}
+
+#scrollTop {
+  position: fixed;
+  bottom: 20%;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  text-indent: -99999px;
+  background-image: url(./scrollTopArrow.png);
+  background-position: 50% 50%;
+  filter: alpha(Opacity=50);
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-size: 10px auto;
+  display: block;
+  z-index: 99999;
+}
+
+.div_style1{
+  padding: 25px;
+}
+
+
+.search-suggest{
+  position: absolute;
+  left: 25%;
+  top: 23%;
+  width: 50%;
+  z-index:9999;
+}
+
+.del_tag_btn{
+  height: 20px;
+  width: 20px;
+  line-height: 12px;
+  text-align: center;
+  padding: 0px 4px;
+  color: white;
+  margin: inherit;
+  margin-left: 3px;
+  margin-right: 8px;
+  background: rgb(103, 111, 118, 0.85);
+}
+
+/*for svg */
+.bar {
+  fill: #aaa;
+  height: 21px;
+  transition: fill .3s ease;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+
+  text {
+    fill: #555;
+  }
+}
+
+.chart:hover, .chart:focus {
+  .bar {
+    fill: #aaa;
+  }
+}
+
+.bar:hover,
+.bar:focus {
+  fill: red !important;
+  text {
+    fill: red;
+  }
+}
+
+figcaption {
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}

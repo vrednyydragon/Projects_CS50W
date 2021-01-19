@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="p-2 h-100 rounded my_background_1">
+{#        serching  #}
+        <div id="serch_by_tags">
+            <form id="search_form" class="form-inline mt-2" method="POST" action="{% url 'recipes'  %}">
+                {% csrf_token %}
+                <input id="txtSearch" class="form-control w-50 m-2 ml-auto" type="text"  name="txtSearch" placeholder="Search" aria-label="Search">
+                <button id="search_submit_btn" class="btn btn-success mr-auto" type="submit">
+{#                    Search#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "9fc6d39b-9d83-4078-bdf8-10149c68adea" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </button>
+            </form>
+            <div id="search_quick_result" class="mr-auto my_background_4 search-suggest" hidden> {# hidden> #}
+            </div>
+        </div>
+        <div class="form-group form-check-inline mt-2" style="display: flex;margin-left: auto; margin-right: auto">
+            <select class="tags_bloc form-control" id="select_tag1">
+                <option selected disabled>
+{#                    cuisines of the world#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "36a0d435-a55c-479a-8d68-28a7fb453a49" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </option>
+                {% for tag in tags %}
+                    {% if tag.tag_category == 1 %}
+                        <option id="{{ tag.tag_uid }}" value="{{ tag.tag_name }}">{{ tag.tag_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <select class="tags_bloc form-control" id="select_tag2">
+                <option selected disabled>
+{#                    type of cooking#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "41be4cd5-c5ec-45f6-a076-784ce6ad0aae" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </option>
+                {% for tag in tags %}
+                    {% if tag.tag_category == 2 %}
+                        <option id="{{ tag.tag_uid }}" value="{{ tag.tag_name }}">{{ tag.tag_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <select class="tags_bloc form-control" id="select_tag3">
+                <option selected disabled>
+{#                    type of dishes#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "48ce9dc4-ca62-45d3-aef1-1935eb6314fa" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </option>
+                {% for tag in tags %}
+                    {% if tag.tag_category == 3 %}
+                        <option id="{{ tag.tag_uid }}" value="{{ tag.tag_name }}">{{ tag.tag_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <select class="tags_bloc form-control mr-auto" id="select_tag4">
+                <option selected disabled>
+{#                    meal time#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "232559fd-0ae2-45d2-823d-f6b9f0788593" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </option>
+                {% for tag in tags %}
+                    {% if tag.tag_category == 4 %}
+                        <option id="{{ tag.tag_uid }}" value="{{ tag.tag_name }}">{{ tag.tag_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-inline my-2">
+        </div>
+        <div id="tags_place" class="d-inline-flex flex-wrap text-white px-3">
+            {#                place for tags#}
+                {% for tag in selected_tags %}
+                    <p id="uid{{ tag.tag_uid }}">{{ tag.tagstranslations__translation }}</p>
+                    <button class="del_tag_btn" id="{{ tag.tag_uid }}">x</button>
+                {% endfor %}
+        </div>
+        <div class="form-inline">
+            <button id="list_view_btn" class="btn btn-sm btn-secondary mr-2 ml-auto" style="margin-bottom: 10px">
+{#                List#}
+                {% for attr in website_attributes  %}
+                    {% if attr.item_uid|stringformat:"s" == "dec8b88d-d974-461b-aa47-ff1f785fbc54" %}
+                        {{ attr.translation }}
+                    {% endif %}
+                {% endfor %}
+            </button>
+            <button id="tile_view_btn" class="btn btn-sm btn-secondary mr-4" style="margin-bottom: 10px">
+{#                Tile#}
+                {% for attr in website_attributes  %}
+                    {% if attr.item_uid|stringformat:"s" == "f3cc4322-e1ad-4ac2-b479-b0d43dc6e719" %}
+                        {{ attr.translation }}
+                    {% endif %}
+                {% endfor %}
+            </button>
+        </div>
+        <div id="recipes_bloc" class="row div_style1">
+            <div class="col-md mx-auto shadow-lg rounded recipes_table my_background_4 div_style1" id="all_recipes_block">  {# style="background: rgba(255,255,255,0.9)" #}
+                {% if search_message_err %}
+                    <h5 style="text-align: center">{{ search_message_err }}</h5>
+                {% endif %}
+                <div id="all_recipes_list">
+                    <table class="table table-borderless table-sm mt-2" id="all_recipes_tbl">
+                        <tbody>
+                            {% for recipe in page_obj %}
+                            {% if recipe.type == "recipe" %}
+                                <tr id="{{ recipe.tags }}">
+                                    {% load static %}
+                                    <td><img src="{% static recipe.img %}" class="mt-2 recipe_img"></td>
+                                    <td style="padding-left: 5%">
+                                        <h5>{{ recipe.name }}</h5>
+                                        <ul class="ing_list_recipes_pg_cl">
+                                            {% for product_uid, ing_name, ing_amount, measure, measure_uid in recipe.ingredients %}
+                                                <li>{{ ing_name }} - {{ ing_amount }} - {{ measure }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        <a href="{% url 'one_recipe_page' recipe.uid_recipe|stringformat:"s" %}">
+{#                                            More >>>#}
+                                            {% for attr in website_attributes  %}
+                                                {% if attr.item_uid|stringformat:"s" == "d5ee697b-128c-4a55-b630-510b457833c9" %}
+                                                    {{ attr.translation }} >>>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% elif recipe.type == "product" %}
+                                    <tr id="{{ recipe.tags }}">
+                                        <td><img src="{% static recipe.img %}" class="mt-2 recipe_img"></td>
+                                        <td style="padding-left: 5%">
+                                            <h5>{{ recipe.name }}</h5>
+                                            <a href="{% url 'product_page' recipe.uid_recipe|stringformat:"s" %}">
+    {#                                            More >>>#}
+                                                {% for attr in website_attributes  %}
+                                                    {% if attr.item_uid|stringformat:"s" == "d5ee697b-128c-4a55-b630-510b457833c9" %}
+                                                        {{ attr.translation }} >>>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="all_recipes_tile" class="row" hidden>
+                    {% for recipe in page_obj %}
+                        <div class="col text-center">
+                            {% if recipe.type == "recipe" %}
+                                {% load static %}
+                                <span id="{{ recipe.tags }}">
+                                    <img src="{% static recipe.img %}" class="mt-2 mx-auto sml_recipe_img">
+                                    <div class="mx-auto" style="width: 200px;">
+                                        <a href="{% url 'one_recipe_page' recipe.uid_recipe|stringformat:"s" %}">
+                                            {{ recipe.name }}
+                                        </a>
+                                    </div>
+                                </span>
+                            {% elif recipe.type == "product" %}
+                                <span class="col text-center" id="{{ recipe.tags }}">
+                                    <img src="{% static recipe.img %}" class="mt-2 mx-auto sml_recipe_img">
+                                    <div class="mx-auto" style="width: 200px;">
+                                        <a href="{% url 'product_page' recipe.uid_recipe|stringformat:"s" %}">
+                                            {{ recipe.name }}
+                                        </a>
+                                    </div>
+                                </span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <ul class="pagination" id="pagin_pages_btn">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+{#                            Previous#}
+                            {% for attr in website_attributes  %}
+                                {% if attr.item_uid|stringformat:"s" == "2654e876-ed28-40a1-ab6f-e34974cd66cb" %}
+                                    {{ attr.translation }}
+                                {% endif %}
+                            {% endfor %}
+                        </a></li>
+                    {% endif %}
+                    {% for page in  page_obj.paginator.page_range  %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">
+{#                            Next#}
+                            {% for attr in website_attributes  %}
+                                {% if attr.item_uid|stringformat:"s" == "f46eedd9-e926-4ef7-ba62-2a03df0b373a" %}
+                                    {{ attr.translation }}
+                                {% endif %}
+                            {% endfor %}
+                        </a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

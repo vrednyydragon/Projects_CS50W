@@ -1,0 +1,10 @@
+**/crib.txt
+__pycache__/
+flask_session/
+**/flsk.cmd
+**/index_test.html
+templates/index_v0.html
+downloads_s/
+**/project2_flack.mp4
+
+

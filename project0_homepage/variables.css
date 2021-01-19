@@ -1,0 +1,11 @@
+ol li {
+	 color: #8b0000;
+	 font-size: 16px;
+}
+ ul > li {
+	 color: #8b0000;
+	 font-size: 16px;
+}
+ p {
+	 color: black;
+}

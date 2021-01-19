@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="p-2 h-100 rounded my_background_1 p-5">
+        <div class="shadow-lg rounded my_background_4 p-3">
+            {% if user_name %}
+                <button id="fav_recipe_btn" class="button btn-sm" style="float: right;" value="{{ btn_fav_value }}">
+            {% else %}
+                <button id="not_registered_fav_btn" class="button btn-sm" style="float: right;">
+            {% endif %}
+{#                    Favorite#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "6e1d8231-f133-440c-8818-20425f199892" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                </button>
+            <h5 align="center">{{ one_recipe.name }}</h5>
+            <div class="d-inline-flex">
+                {% for tag in one_recipe.tags %}
+                        <a id="{{ tag.tag_uid }}" class="mx-2 show_tag_name" style="color: grey" href="#">
+                            {{ tag.tag_uid__tagstranslations__translation }}</a>/
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col- m-5">
+                    {% load static %}
+                    <img src="{% static one_recipe.img %}" class="recipe_img" >
+                </div>
+                <div class="col- m-auto">
+                    <p class="ml-4 text-sm-center">
+{#                        Ingredients#}
+                       {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "9460a8f3-b6ff-446c-9527-ff92fe832948" %}
+                                {{ attr.translation }}:
+                            {% endif %}
+                       {% endfor %}
+                    </p>
+                    <ul id="ing_list_recipes_pg" >
+                        {% for product_uid, ing_name, ing_amount, measure, measure_uid in one_recipe.ingredients %}
+                            <li> <a href="{% url 'product_page' product_uid|stringformat:"s" %}" style="color: grey">{{ ing_name }}</a>
+                                - {{ ing_amount }} - {{ measure }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="form-inline align-content-center" id="weight_block">
+                <input id="recipeweight" class="form-control" style="width: 100px" type="number"
+                       name="txtSearch" value="100">
+                <span class="ml-2">g</span>
+            </div>
+            <table class="table table-bordered text-center table-responsive-lg " id="nutric_table">
+                <thead>
+                    <tr>
+                        {% for nutric_name, value, measure in nutricients %}
+                            <th>{{ nutric_name }}, {{ measure }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for nutric_name, value, measure in nutricients %}
+                            <td id="{{ value }}">{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-inline">
+                <select id="food_time_select" class="form-control ml-auto" style="width: 300px">
+                    <option value="first_breakfast" title="~ 08:00">
+{#                        first breakfast#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "b8b52f18-ef06-4f89-a4db-b9151a40da2d" %}
+                                {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </option>
+                    <option value="second_breakfast" title="~ 10:30">
+{#                        second breakfast#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "ae1a063c-ab15-4e7f-abc6-4a8047440654" %}
+                                {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </option>
+                    <option value="lunch" title="~ 13:30">
+{#                        lunch#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "53de9a6d-010f-4ffa-8636-b64a9f6bc562" %}
+                                {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </option>
+                    <option value="afternoon_snack" title="~ 16:00">
+{#                        afternoon snack#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "44367a60-6a4a-453c-aecf-ee69b5e8c2b5" %}
+                                {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </option>
+                    <option value="dinner" title="~ 18:30">
+{#                        dinner#}
+                        {% for attr in website_attributes  %}
+                            {% if attr.item_uid|stringformat:"s" == "5db23539-de43-482d-a7b0-f2f2c620e9cf" %}
+                                {{ attr.translation }}
+                            {% endif %}
+                        {% endfor %}
+                    </option>
+                </select>
+                {% if user_name %}
+                    <button id="add_food_log_btn" class="button btn-sm ml-2" style="float: right;" value="{{ recipe_uid }}">
+                {% else %}
+                    <button id="not_registered_food_log_btn" class="button btn-sm" style="float: right;">
+                {% endif %}
+{#                    It was eaten#}
+                    {% for attr in website_attributes  %}
+                        {% if attr.item_uid|stringformat:"s" == "2d76d437-974a-4d8e-8702-c17dfe0de6d2" %}
+                            {{ attr.translation }}
+                        {% endif %}
+                    {% endfor %}
+                    </button>
+            </div>
+            <br>
+            <p align="center">
+{#            Instruction#}
+                {% for attr in website_attributes  %}
+                    {% if attr.item_uid|stringformat:"s" == "24112e55-8cb2-4e9a-aa30-b1bb1b8c9a30" %}
+                        {{ attr.translation }}:
+                    {% endif %}
+               {% endfor %}
+            </p>
+            {% for step, instruction in one_recipe.instructions %}
+                <p>- {{ instruction }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

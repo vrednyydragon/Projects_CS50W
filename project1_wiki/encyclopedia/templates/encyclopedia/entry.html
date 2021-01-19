@@ -1,0 +1,10 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block body %}
+        <button class="btn btn-sm btn-outline-info px-4" onClick='location.href="{{ page_title }}/edit"'>Edit</button>
+        {{ page_info|safe  }}
+{% endblock %}

@@ -1,0 +1,18 @@
+git:
+git status
+git branch
+git checkout -b <name> #create new branch and go for it
+git add *
+git commit -m "message"
+git push #send changes to github
+
+
+Django:
+python manage.py startapp <name>
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py test
+
+python manage.py inspectdb > allmodels.py   #create models for existing db
