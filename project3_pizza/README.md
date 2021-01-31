@@ -18,3 +18,15 @@ allowing site administrators to mark orders as complete and allowing users to se
 - templates - here are html files
 
 - orders - here are python files, I wirked with admin.py, models.py, urls.py and views.py
+
+**How to run:**
+
+- Download the project3_pizza
+
+- In a terminal window, navigate into your project3_pizza directory
+
+- Run pip3 install -r requirements.txt in your terminal window to make sure that all of the necessary Python packages are installed
+
+- Run _python manage.py runserver_ to start up the Django application
+
+- If you navigate to the URL provided by Django, you should see the start page of the application

@@ -52,7 +52,7 @@ How did I decide to choose this topic? First of all, it was interesting for me a
 	- tests.py
 	- urls.py
 	- views.py - file that contains all server functions
-- env.cmg - file with environment configuration variables
+- env.cmd - file with environment configuration variables
 - media - folder contains users account images
 - project4_final_v2020 - this folder contains:
 	- __pycache__
@@ -63,11 +63,19 @@ How did I decide to choose this topic? First of all, it was interesting for me a
 	- wsgi.py
 - templates - empty folder
 -.gitignore - file that conteins hidden files or folders that don't need in git repository
-- hf_translate.py - file for translating data from Russian to English and vice versa;
-- import_tables.py - creating new tables for database if they don't exists;
 - manage.py
 - README.md - include a writeup describing of the project  
 
-*My application easy to run from command string using commands:*
-- env.cmg
-- python manage.py runserver
+**How to run:**
+
+- Download the project4_final_prjct
+
+- In a terminal window, navigate into your project4_final_prjct directory
+
+- Run pip3 install -r requirements.txt in your terminal window to make sure that all of the necessary Python packages are installed
+
+- Run _env.cmd_
+
+- Run _python manage.py runserver_ to start up the Django application
+
+- If you navigate to the URL provided by Django, you should see the start page of the application

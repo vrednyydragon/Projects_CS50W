@@ -15,3 +15,14 @@ https://youtu.be/c0jiUJjEsfU
 
 - requirements.txt - file with Python packages that need to be installed in order to run this web application.
 
+**How to run:**
+
+- Download the project1_wiki
+
+- In a terminal window, navigate into your project1_wiki directory
+
+- Run pip3 install -r requirements.txt in your terminal window to make sure that all of the necessary Python packages are installed
+
+- Run _python manage.py runserver_ to start up the application
+
+- If you navigate to the URL, you should see the start page of the application

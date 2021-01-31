@@ -15,3 +15,6 @@ You can see the result of this work on youtube by the link: https://youtu.be/g-j
 - nesting.scss and nesting.css - this files contain stylesheet for nesting.
 
 - Kyiv.jpg, kisi.jpg, MBC.jpg, rollers.jpg, snowboard.jpg, kayak.jpg- image that is used on the website. 
+
+**How to run:**
+You need to enter the project directory and open index.html.
