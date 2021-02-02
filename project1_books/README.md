@@ -40,11 +40,11 @@ For this project, I set up a PostgreSQL database to use with this application. I
 
 - Run pip3 install -r requirements.txt in your terminal window to make sure that all of the necessary Python packages are installed
 
-- Set the environment variable FLASK_APP to be application.py. On a Mac or on Linux, the command to do this is export FLASK_APP=application.py. On Windows, the command is instead set FLASK_APP=application.py. You may optionally want to set the environment variable FLASK_DEBUG to 1, which will activate Flask’s debugger and will automatically reload your web application whenever you save a change to a file.
+- Set the environment variable FLASK_APP=application.py. You may optionally want to set the environment variable FLASK_DEBUG=1, which will activate Flask’s debugger and will automatically reload your web application whenever you save a change to a file.
 
-- set DATABASE_URL=postgres://bkctkzncoaiuoi:bc7af65da1075e66d6d3f97f60584a249b82f82367db00cc35349bb38741bd69@ec2-107-21-126-201.compute-1.amazonaws.com:5432/destd2oum5btae
+- Set the environment variable DATABASE_URL=postgres://database_username:database_name@host:port/database_username_password
 
-- Run _flask run_ to start up the Flask application
+- Run ***flask run*** to start up the Flask application
 
 - If you navigate to the URL provided by flask, you should see the start page of the application
 
