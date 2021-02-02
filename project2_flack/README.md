@@ -29,8 +29,8 @@ This project is an online messaging service using Flask, similar in spirit to Sl
 
 - Run pip3 install -r requirements.txt in your terminal window to make sure that all of the necessary Python packages are installed
 
-- Set the environment variable FLASK_APP to be application.py. On a Mac or on Linux, the command to do this is export FLASK_APP=application.py. On Windows, the command is instead set FLASK_APP=application.py.
+- Set the environment variable FLASK_APP=application.py. You may optionally want to set the environment variable FLASK_DEBUG=1, which will activate Flask’s debugger and will automatically reload your web application whenever you save a change to a file.
 
-- Run _flask run_ to start up the Flask application
+- Run ***flask run*** to start up the Flask application
 
 - If you navigate to the URL provided by Flask, you should see the start page of the application
